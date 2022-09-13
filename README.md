@@ -1,4 +1,4 @@
-# project1
+# project 1
 ShePrograms
 Mohraiel Matta, Tiffany Truong, Erika Ledesma
 
