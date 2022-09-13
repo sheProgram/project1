@@ -1,10 +1,25 @@
-# project 1
+# Project 1
+ 
+    Group Name
 ShePrograms
-Mohraiel Matta, Tiffany Truong, Erika Ledesma
 
-**CPP email, and GitHub usernames**
+    Member Names
+Mohraiel Matta, mmmatta@cpp.edu, mohraielm
 
-Each member’s roles and contributions in completing the project.
+Tiffany Truong,**cpp email,github username**
+
+Erika Ledesma, **cpp email,github username**
+
+    Roles & Contribution
+
+Mohraiel Matta:
+
+Erika Ledesma:
+
+Tiffany Truong:
+
+
+    (Do later)
 
 Whether you have implemented extra features (eg. unit test class using some framework)
 
