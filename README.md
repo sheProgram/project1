@@ -6,7 +6,7 @@ ShePrograms
     Member Names
 Mohraiel Matta, mmmatta@cpp.edu, mohraielm
 
-Tiffany Truong,**cpp email,github username**
+Tiffany Truong, tmtruong@cpp.edu, tiff178
 
 Erika Ledesma, **cpp email,github username**
 
