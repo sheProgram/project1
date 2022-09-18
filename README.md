@@ -8,7 +8,7 @@ Mohraiel Matta, mmmatta@cpp.edu, mohraielm
 
 Tiffany Truong, tmtruong@cpp.edu, tiff178
 
-Erika Ledesma, **cpp email,github username**
+Erika Ledesma, euledesma@cpp.edu, erikajledesma
 
     Roles & Contribution
 
