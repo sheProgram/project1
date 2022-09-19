@@ -6,12 +6,12 @@
     @author Frank M. Carrano, Timothy M. Henry
     @version 5.0
 */
-public final class LinkedBag1<T> implements BagInterface<T>
+public final class LinkedBag<T> implements BagInterface<T>
 {
 	private Node firstNode;       // Reference to first node
 	private int numberOfEntries;
 
-	public LinkedBag1()
+	public LinkedBag()
 	{
 		firstNode = null;
       numberOfEntries = 0;
@@ -124,7 +124,7 @@ public final class LinkedBag1<T> implements BagInterface<T>
 			next = nextNode;	
 		} // end constructor
 	} // end Node
-} // end LinkedBag1
+} // end LinkedBag
 
 
 
