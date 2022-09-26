@@ -124,8 +124,17 @@ public final class LinkedBag<T> implements BagInterface<T>
 			next = nextNode;	
 		} // end constructor
 	} // end Node
-} // end LinkedBag
 
-
-
-
+// Combine two bags into one bag - union
+/* (non-Javadoc)
+ * @see BagInterface#union(BagInterface)
+ */
+	public BagInterface<T> union(BagInterface<T> bag2) {
+		BagInterface<T> newBag = new LinkedBag<T>();
+			for (T A : toArray())
+				newBag.add(A);
+			for (T A : bag2.toArray())
+				newBag.add(A);
+			return newBag;
+		}
+}  // end LinkedBag

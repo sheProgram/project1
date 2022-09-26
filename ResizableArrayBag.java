@@ -222,6 +222,20 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
       if (!integrityOK)
          throw new SecurityException ("ArrayBag object is corrupt.");
    } // end checkintegrity
+
+   // Combine two bags into one bag - union
+   /* (non-Javadoc)
+   * @see BagInterface#union(BagInterface)
+   */
+   public BagInterface<T> union(BagInterface<T> bag2) {
+		BagInterface<T> newBag = new ResizableArrayBag<T>();
+			for (T A : toArray())
+				newBag.add(A);
+			for (T A : bag2.toArray())
+				newBag.add(A);
+			return newBag;
+		}
+
 } // end ResizableArrayBag
 
 /*
