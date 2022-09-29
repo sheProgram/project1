@@ -12,11 +12,11 @@ Erika Ledesma, euledesma@cpp.edu, erikajledesma
 
     Roles & Contribution
 
-Mohraiel Matta:
+Mohraiel Matta: Intersection
 
-Erika Ledesma:
+Erika Ledesma: Difference
 
-Tiffany Truong:
+Tiffany Truong: Union
 
 
     (Do later)
