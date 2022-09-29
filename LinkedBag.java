@@ -137,4 +137,6 @@ public final class LinkedBag<T> implements BagInterface<T>
 				newBag.add(A);
 			return newBag;
 		}
+
+		//add intersection
 }  // end LinkedBag
