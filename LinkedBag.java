@@ -137,4 +137,9 @@ public final class LinkedBag<T> implements BagInterface<T>
 				newBag.add(A);
 			return newBag;
 		}
+
+	public BagInterface<T> difference(BagInterface<T> bag){
+		BagInterface<T> leftOver = new LinkedBag<T>();
+		return leftOver;
+	}
 }  // end LinkedBag

@@ -42,5 +42,9 @@ public class BagDriver {
         BagInterface<String> RAbag3 = RAbag1.union(RAbag2);
         System.out.println("Union for ResizableArrayBag: " + Arrays.toString(RAbag3.toArray()));
 
+        BagInterface<String> RAleftOver = RAbag1.difference(RAbag2);
+        System.out.println("Difference for ResizableArrayBag: " + Arrays.toString(RAleftOver.toArray()));
+        
+
     }
 }
