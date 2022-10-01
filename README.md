@@ -1,7 +1,7 @@
 # Project 1
  
     Group Name
-ShePrograms
+shePrograms
 
     Member Names
 Mohraiel Matta, mmmatta@cpp.edu, mohraielm
