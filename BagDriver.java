@@ -39,6 +39,7 @@ public class BagDriver {
         System.out.println("Bag 1: " + Arrays.toString(RAbag1.toArray()));
         System.out.println("Bag 2: " + Arrays.toString(RAbag2.toArray()));
 
+        //added union
         BagInterface<String> RAbag3 = RAbag1.union(RAbag2);
         System.out.println("Union for ResizableArrayBag: " + Arrays.toString(RAbag3.toArray()));
 
