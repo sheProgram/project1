@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.Arrays;
 /**
    A class that implements a bag of objects by using an array.
@@ -226,16 +225,44 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
 
    // Combine two bags into one bag - union
    /* (non-Javadoc)
-   * @see BagInterface#union(BagInterface)
-   */
-   public BagInterface<T> union(BagInterface<T> bag2) {
-		BagInterface<T> newBag = new ResizableArrayBag<T>();
-			for (T A : toArray())
-				newBag.add(A);
-			for (T A : bag2.toArray())
-				newBag.add(A);
-			return newBag;
-		}
+ * @see BagInterface#union(BagInterface)
+ */
+public BagInterface<T> union(BagInterface<T> bag2) {
+      // create a newly allocated bag
+      BagInterface<T> addBag = new ResizableArrayBag<>();
+
+      // clone first and second bag
+      T[] newbag1 = this.toArray();
+      T[] newbag2 = bag2.toArray();
+
+      // check to see if either one of the two bags is null
+      if ((null == this) || (null == bag2)) {
+         // return an empty bag if either is null
+         System.out.print("A null bag was found...");
+         return addBag;
+      }
+      
+      // check to see if both bags are empty
+      if (this.isEmpty() && bag2.isEmpty()) {
+         //return an empty bag if both are empty
+         System.out.println("Both bags are empty.");
+         return addBag;
+      }
+      
+      // return the newly allocated resizable array bag - a combination of the entries from both of the bags (union)
+      int index = 0;
+      for (; index < this.getCurrentSize(); index++) {
+         addBag.add(newbag1[index]);
+      }
+      
+      for (index = 0; index < bag2.getCurrentSize(); ++index) {
+         addBag.add(newbag2[index]);
+      }
+
+      // return the union of the two bags.
+      return addBag;
+      
+   } // end of union
 
    // Difference: Find shared elements in two bags and find difference between the two
    public BagInterface<T> difference(BagInterface<T> bag2){
