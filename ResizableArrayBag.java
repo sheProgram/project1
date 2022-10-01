@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.Arrays;
 /**
    A class that implements a bag of objects by using an array.
@@ -235,6 +236,38 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
 				newBag.add(A);
 			return newBag;
 		}
+
+   // Difference: Find shared elements in two bags and find difference between the two
+   public BagInterface<T> difference(BagInterface<T> bag2){
+      BagInterface<T> leftOver = new ResizableArrayBag<T>();
+      T[] newBag = this.toArray();
+      T[] newBag2 = bag2.toArray();
+
+      for (int i = 0; i < this.getCurrentSize(); i++){
+         // for (int j = 0; j < bag2.getCurrentSize(); j++){
+            int b1_count = 0;
+            int b2_count = 0;
+            int diff = 0;
+            int j = 0;
+            
+            if (bag2.contains(newBag[i])){
+               b1_count = getFrequencyOf(newBag[i]);
+               b2_count = getFrequencyOf(newBag2[j]);
+               diff = b2_count - b1_count;
+               int num = 0;
+               while (num < diff){
+                  leftOver.add(newBag[i]);
+                  num--;
+               }
+               
+            }
+            if (!(bag2.contains(newBag[i]))){
+               leftOver.add(newBag[i]);
+            }
+      }
+      return leftOver;
+   }
+
 
 } // end ResizableArrayBag
 
