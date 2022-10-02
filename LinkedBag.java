@@ -138,24 +138,50 @@ public final class LinkedBag<T> implements BagInterface<T>
 		}
 	} // end Node
 
-// Combine two bags into one bag - union
-/* (non-Javadoc)
- * @see BagInterface#union(BagInterface)
- */
+	/* (non-Javadoc)
+	* @see BagInterface#union(BagInterface)
+	*/
+	// Combine two bags into one bag - union
 	public BagInterface<T> union(BagInterface<T> bag2) {
-		BagInterface<T> newBag = new LinkedBag<T>();
-			for (T A : toArray())
-				newBag.add(A);
-			for (T A : bag2.toArray())
-				newBag.add(A);
-			return newBag;
+		// create a newly allocated bag
+		BagInterface<T> addBag = new LinkedBag<>();
+
+		// clone first and second bag
+		T[] newbag1 = this.toArray();
+		T[] newbag2 = bag2.toArray();
+
+		// check to see if either one of the two bags is null
+		if ((null == this) || (null == bag2)) {
+			// return an empty bag if either is null
+			System.out.print("A null bag was found...");
+			return addBag;
 		}
+		
+		// check to see if both bags are empty
+		if (this.isEmpty() && bag2.isEmpty()) {
+			//return an empty bag if both are empty
+			System.out.println("Both bags are empty.");
+			return addBag;
+		}
+		
+		// return the newly allocated linked bag - a combination of the entries from both of the bags (union)
+		int index = 0;
+		for (; index < this.getCurrentSize(); index++) {
+			addBag.add(newbag1[index]);
+		}
+    
+    for (index = 0; index < bag2.getCurrentSize(); ++index) {
+			addBag.add(newbag2[index]);
+		}
+
+		// return the union of the two bags.
+		return addBag;
+   } // end of union
 	
 	public BagInterface<T> difference(BagInterface<T> bag2){
-      BagInterface<T> leftOver = new LinkedBag<T>();
-      T[] newBag = this.toArray();
-	  
-	  for (T e : newBag){
+    BagInterface<T> leftOver = new LinkedBag<T>();
+     T[] newBag = this.toArray(){
+      for (T e : newBag){
         if (bag2.contains(e)){
             int diff = getFrequencyOf(e) - bag2.getFrequencyOf(e);
             int num = 0;
@@ -163,11 +189,11 @@ public final class LinkedBag<T> implements BagInterface<T>
                   leftOver.add(e);
                   num--;
             }
-        }
-        if (!(bag2.contains(e))){
-            leftOver.add(e);
-        }
-	}
+       }
+       if (!(bag2.contains(e))){
+        leftOver.add(e);
+       }
+	   }
       return leftOver;
 	}
 }  // end LinkedBag
