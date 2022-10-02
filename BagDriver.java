@@ -21,6 +21,11 @@ public class BagDriver {
         BagInterface<String> linkedBag3 = linkedBag1.union(linkedBag2);
         System.out.println("Union for LinkedBag: " + Arrays.toString(linkedBag3.toArray()));
 
+        BagInterface<String> LBleftOver1 = linkedBag1.difference(linkedBag2);
+        BagInterface<String> LBleftOver2 = linkedBag2.difference(linkedBag1);
+        System.out.println("Difference for LinkedBag, invoking on Linked bag 1 : " + Arrays.toString(LBleftOver1.toArray()));
+        System.out.println("Difference for LinkedBag, invoking on Linked bag 2 : " + Arrays.toString(LBleftOver2.toArray()));
+
         BagInterface<String> RAbag1= new ResizableArrayBag<>();
         BagInterface<String> RAbag2= new ResizableArrayBag<>();
 
@@ -42,8 +47,10 @@ public class BagDriver {
         BagInterface<String> RAbag3 = RAbag1.union(RAbag2);
         System.out.println("Union for ResizableArrayBag: " + Arrays.toString(RAbag3.toArray()));
 
-        BagInterface<String> RAleftOver = RAbag1.difference(RAbag2);
-        System.out.println("Difference for ResizableArrayBag: " + Arrays.toString(RAleftOver.toArray()));
+        BagInterface<String> RAleftOver1 = RAbag1.difference(RAbag2);
+        BagInterface<String> RAleftOver2 = RAbag2.difference(RAbag1);
+        System.out.println("Difference for ResizableArrayBag, invoking on Resizable Array 1: " + Arrays.toString(RAleftOver1.toArray()));
+        System.out.println("Difference for ResizableArrayBag, invoking on Resizable Array 2: " + Arrays.toString(RAleftOver2.toArray()));
         
 
     }

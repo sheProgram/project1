@@ -240,34 +240,23 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
    // Difference: Find shared elements in two bags and find difference between the two
    public BagInterface<T> difference(BagInterface<T> bag2){
       BagInterface<T> leftOver = new ResizableArrayBag<T>();
-      T[] newBag = this.toArray();
-      T[] newBag2 = bag2.toArray();
+      T[] newBag = this.toArray(); //create copy of invoked bag
 
-      for (int i = 0; i < this.getCurrentSize(); i++){
-         // for (int j = 0; j < bag2.getCurrentSize(); j++){
-            int b1_count = 0;
-            int b2_count = 0;
-            int diff = 0;
-            int j = 0;
-            
-            if (bag2.contains(newBag[i])){
-               b1_count = getFrequencyOf(newBag[i]);
-               b2_count = getFrequencyOf(newBag2[j]);
-               diff = b2_count - b1_count;
-               int num = 0;
-               while (num < diff){
-                  leftOver.add(newBag[i]);
-                  num--;
-               }
-               
+      for (T e : newBag){
+         if (bag2.contains(e)){
+            int diff = getFrequencyOf(e) - bag2.getFrequencyOf(e); //find num of occurrences given found at least once
+            int num = 0;
+            while (num < diff){ //add this entry to new bag as many times as difference
+               leftOver.add(e);
+               num--;
             }
-            if (!(bag2.contains(newBag[i]))){
-               leftOver.add(newBag[i]);
-            }
+         }
+         if (!bag2.contains(e)){ //if no occurrence, add into new bag
+            leftOver.add(e);
+         }
       }
-      return leftOver;
+      return leftOver; //return new bag
    }
-
 
 } // end ResizableArrayBag
 
