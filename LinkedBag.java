@@ -97,7 +97,16 @@ public final class LinkedBag<T> implements BagInterface<T>
 		 @return  The number of times anEntry appears in the bag. */
 	public int getFrequencyOf(T anEntry)
    {
-      return 0; // STUB
+      int count = 0;
+	  int num = 0;
+	  Node currentNode = firstNode;
+	  while ((num < getCurrentSize()) && (currentNode != null)){
+		if (anEntry.equals(currentNode.getData())){
+			count++;
+		}
+		currentNode = currentNode.next;
+	}
+	  return count; // STUB
    } // end getFrequencyOf
 	
 	/** Tests whether this bag contains a given entry.
@@ -105,7 +114,7 @@ public final class LinkedBag<T> implements BagInterface<T>
 		 @return  True if the bag contains anEntry, or false otherwise. */
 	public boolean contains(T anEntry)
    {
-      return false; // STUB
+	return getFrequencyOf(anEntry) > 0; // STUB
    } // end contains
 
 	private class Node
@@ -123,6 +132,10 @@ public final class LinkedBag<T> implements BagInterface<T>
 			data = dataPortion;
 			next = nextNode;	
 		} // end constructor
+
+		private T getData() {
+			return data;
+		}
 	} // end Node
 
 	/* (non-Javadoc)
@@ -156,19 +169,31 @@ public final class LinkedBag<T> implements BagInterface<T>
 		for (; index < this.getCurrentSize(); index++) {
 			addBag.add(newbag1[index]);
 		}
-	
-		for (index = 0; index < bag2.getCurrentSize(); ++index) {
+    
+    for (index = 0; index < bag2.getCurrentSize(); ++index) {
 			addBag.add(newbag2[index]);
 		}
 
 		// return the union of the two bags.
 		return addBag;
+   } // end of union
 	
-	} // end of union
-
-	@Override
-	public BagInterface<T> difference(BagInterface<T> bag2) {
-		// TODO Auto-generated method stub
-		return null;
+	public BagInterface<T> difference(BagInterface<T> bag2){
+    BagInterface<T> leftOver = new LinkedBag<T>();
+     T[] newBag = this.toArray(){
+      for (T e : newBag){
+        if (bag2.contains(e)){
+            int diff = getFrequencyOf(e) - bag2.getFrequencyOf(e);
+            int num = 0;
+            while (num < diff){ //adds to new bag as many times as difference
+                  leftOver.add(e);
+                  num--;
+            }
+       }
+       if (!(bag2.contains(e))){
+        leftOver.add(e);
+       }
+	   }
+      return leftOver;
 	}
 }  // end LinkedBag
