@@ -10,11 +10,13 @@ public final class LinkedBag<T> implements BagInterface<T>
 {
 	private Node firstNode;       // Reference to first node
 	private int numberOfEntries;
+	private boolean OKintegrity;
 
 	public LinkedBag()
 	{
 		firstNode = null;
       numberOfEntries = 0;
+	  OKintegrity=true;
 	} // end default constructor
 
 	/** Adds a new entry to this bag.
@@ -108,6 +110,12 @@ public final class LinkedBag<T> implements BagInterface<T>
 	}
 	  return count; // STUB
    } // end getFrequencyOf
+
+   private void checkIntegrity() {
+	if (!OKintegrity)
+		throw new SecurityException("ArrayBag object is corrupt.");
+} // end checkIntegrity
+
 	
 	/** Tests whether this bag contains a given entry.
 		 @param anEntry  The entry to locate.
@@ -178,9 +186,33 @@ public final class LinkedBag<T> implements BagInterface<T>
 		return addBag;
    } // end of union
 	
+public BagInterface<T> intersection(BagInterface<T> bag2){
+checkIntegrity();
+
+	BagInterface<T>commonItems=new LinkedBag<T>();
+
+//cloned  bag
+			T[] newbg1 = this.toArray();
+
+////check the elements in bag one and if bag 2 contains the letters in there, add it into bag3 and remove it from second bag
+
+			for (T i: newbg1){
+				if(bag2.contains(i)){
+					commonItems.add(i);
+					bag2.remove(i);
+				}
+			}
+			//checks if the bag is empty, it will return the new bag empty
+			if(this.isEmpty()||bag2.isEmpty()){
+				return commonItems;
+			}
+			return commonItems;
+}//end of intersection
+
+
 	public BagInterface<T> difference(BagInterface<T> bag2){
     BagInterface<T> leftOver = new LinkedBag<T>();
-     T[] newBag = this.toArray(){
+     T[] newBag = this.toArray();
       for (T e : newBag){
         if (bag2.contains(e)){
             int diff = getFrequencyOf(e) - bag2.getFrequencyOf(e);
@@ -194,6 +226,6 @@ public final class LinkedBag<T> implements BagInterface<T>
         leftOver.add(e);
        }
 	   }
-      return leftOver;
+	   return leftOver;
 	}
 }  // end LinkedBag

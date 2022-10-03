@@ -264,11 +264,32 @@ public BagInterface<T> union(BagInterface<T> bag2) {
       
    } // end of union
 
+   public BagInterface<T> intersection(BagInterface<T> bag2){
+      checkintegrity();
+      BagInterface<T>commonItems2=new ResizableArrayBag<T>();
+      T[] newbg1 = this.toArray();
+      //check the elements in bag one and if bag 2 contains the letters in there, add it into bag3 and remove it from second bag
+               for (T i: newbg1){
+                  if(bag2.contains(i)){
+                     commonItems2.add(i);
+                     bag2.remove(i);
+                  }
+               }
+               //checks if the bag is empty, it will return the new bag empty
+               if(this.isEmpty()||bag2.isEmpty()){
+                  return commonItems2;
+               }
+               return commonItems2;
+      }//end of intersection
+
    // Difference: Find shared elements in two bags and find difference between the two
    public BagInterface<T> difference(BagInterface<T> bag2){
-      BagInterface<T> leftOver = new ResizableArrayBag<T>();
-      T[] newBag = this.toArray(); //create copy of invoked bag
+      checkintegrity();
 
+      BagInterface<T> leftOver = new ResizableArrayBag<T>();
+
+
+      T[] newBag = this.toArray(); //create copy of invoked bag
       for (T e : newBag){
          if (bag2.contains(e)){
             int diff = getFrequencyOf(e) - bag2.getFrequencyOf(e); //find num of occurrences given found at least once
@@ -282,9 +303,13 @@ public BagInterface<T> union(BagInterface<T> bag2) {
             leftOver.add(e);
          }
       }
-      return leftOver; //return new bag
-   }
+      if(this.isEmpty()||bag2.isEmpty()){
+         return leftOver;
+      }
 
+      return leftOver; //return new bag
+      
+   }
 } // end ResizableArrayBag
 
 /*
