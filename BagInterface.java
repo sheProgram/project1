@@ -46,12 +46,23 @@ public interface BagInterface<T>
 		 @return  A newly allocated array of all the entries in the bag.
                 Note: If the bag is empty, the returned array is empty. */
 	public T[] toArray();
-
 	/** Retrieves entries from BagDriver.Java
 	 * @param bag2
 	 * @return
 	 */
 	public BagInterface<T> union(BagInterface<T> bag2);
+	/**Combine two bags into one bag
+	 * @param bag2
+	 * @return all content of bags together
+	 */
 	public BagInterface<T> intersection(BagInterface<T> bag2);
+	/** checks the elements in bag one and if bag 2 contains the letters in there
+	 * @param bag2
+	 * @return the common items of the bags
+	 */
 	public BagInterface<T> difference(BagInterface<T> bag2);
+	/** collection of the entries that would be left in one collection after removing those that also occur in the second
+	 * @param bag2
+	 * @return content from each bag
+	 */
 } // end BagInterface
