@@ -195,6 +195,7 @@ checkIntegrity();
 //cloned  bag
 			T[] newbg1 = this.toArray();
 
+
 ////check the elements in bag one and if bag 2 contains the letters in there, add it into bag3 and remove it from second bag
 
 			for (T i: newbg1){

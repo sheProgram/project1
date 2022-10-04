@@ -66,11 +66,10 @@ public class BagDriver {
 
         System.out.println("Intersection for RezizableArrayBag: "+Arrays.toString(RAbag1.intersection(RAbag2).toArray()));
 
-        BagInterface<String> RAleftOver1 = RAbag1.difference(RAbag2);
+        //BagInterface<String> RAleftOver1 = RAbag1.difference(RAbag2);
         BagInterface<String> RAleftOver2 = RAbag2.difference(RAbag1);
         System.out.println("___________________________________________________");
-        System.out.println("Difference for ResizableArrayBag, invoking on Resizable Array 1: " + Arrays.toString(RAleftOver1.toArray()));
-        System.out.println("Difference for ResizableArrayBag, invoking on Resizable Array 2: " + Arrays.toString(RAleftOver2.toArray()));
+        System.out.println("Difference for ResizableArrayBag: " + Arrays.toString(RAleftOver2.toArray()));
 
     }
 }
