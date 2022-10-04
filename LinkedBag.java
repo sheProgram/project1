@@ -4,6 +4,7 @@
     INCOMPLETE DEFINITION; includes definitions for the methods add,
     toArray, isEmpty, and getCurrentSize.
     @author Frank M. Carrano, Timothy M. Henry
+	@author Mohraiel Matta, Tiffany Truong, Erika Ledesma
     @version 5.0
 */
 public final class LinkedBag<T> implements BagInterface<T>

@@ -1,3 +1,6 @@
+/**
+ * @author Mohraiel Matta, Tiffany Truong, Erika Ledesma
+ */
 import java.util.Arrays;
 public class BagDriver {
     public static void main(String[] args) {
@@ -40,16 +43,16 @@ public class BagDriver {
         BagInterface<String> RAbag1= new ResizableArrayBag<>();
         BagInterface<String> RAbag2= new ResizableArrayBag<>();
 
-        RAbag1.add("hi");
-        RAbag1.add("no");
-        RAbag1.add("bye");
-        RAbag1.add("wow");
+        RAbag1.add("A");
+        RAbag1.add("B");
+        RAbag1.add("C");
+        RAbag1.add("D");
 
 
-        RAbag2.add("no");
-        RAbag2.add("lion");
-        RAbag2.add("sorry");
-        RAbag2.add("bye");
+        RAbag2.add("E");
+        RAbag2.add("F");
+        RAbag2.add("A");
+        RAbag2.add("D");
 
         // add union, intersection, and difference for ResizableArrayBag
         System.out.println("Bag 1: " + Arrays.toString(RAbag1.toArray()));
