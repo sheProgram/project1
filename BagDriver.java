@@ -1,3 +1,6 @@
+/**
+ * @author Mohraiel Matta, Tiffany Truong, Erika Ledesma
+ */
 import java.util.Arrays;
 public class BagDriver {
     public static void main(String[] args) {

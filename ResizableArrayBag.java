@@ -1,3 +1,6 @@
+/**
+ * @author Mohraiel Matta, Tiffany Truong, Erika Ledesma
+ */
 import java.util.Arrays;
 /**
    A class that implements a bag of objects by using an array.
